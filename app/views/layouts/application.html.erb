@@ -7,7 +7,14 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
+  <div style="float: right;">
+  <% if current_user %>
+   Hi <%= current_user.username %>  , Not You? <%= link_to "Log out", logout_path %>
+  <% else %>
+    Already have an account? <%= link_to "Log in", login_path %> <br/>
+   Don't have an account?  <%= link_to "Sign up!", signup_path %></p>
+  <% end %>
+</div>
 <%= yield %>
 
 </body>
